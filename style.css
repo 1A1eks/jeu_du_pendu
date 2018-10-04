@@ -2,11 +2,30 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-
+/*============================= Left Section ===================================-*/
 #left{
     background-color: rgb(159, 179, 245);
 }
 
+h1 {
+    text-align: center;
+}
+
+h2 {
+    padding: 3%;
+    margin-left: 10%;
+}
+
+/*----------Form for the Letter ---------------*/
+form {
+    text-align: center;
+}
+
+input {
+    width: 10px;
+}
+
+/*============================= Right Section =================================*/
 #right{
     background-color: #ddd;
     justify-content: center;
@@ -21,11 +40,3 @@
 .picture {
 }
 
-h1 {
-    text-align: center;
-}
-
-h2 {
-    padding: 3%;
-    margin-left: 10%;
-}
