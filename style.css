@@ -1,4 +1,26 @@
 #page {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
+}
+
+#left{
+    background-color: rgb(159, 179, 245);
+}
+
+#right{
+    background-color: #ddd;
+    justify-content: center;
+    text-align: center;
+}
+
+.picture {
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    padding: 3%;
+    margin-left: 10%;
 }
