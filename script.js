@@ -1,3 +1,4 @@
+
 var wonderingWord = prompt("What is the magical word?")
 
 const le = wonderingWord.length;
@@ -24,3 +25,14 @@ function repro () {
 }
 
 spelling();
+
+function wonderingWordCaption() {
+        let finalCaption = "";
+    for (i = 0; i <wonderingWord.length; i++) {
+        let caption = " _ ";
+        finalCaption += caption;
+    }
+    document.querySelector("#page > #left > h2").innerHTML = finalCaption;
+}
+
+wonderingWordCaption();
