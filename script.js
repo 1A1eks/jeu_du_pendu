@@ -19,6 +19,7 @@ function spelling () {
 
 function repro () {
     if (le !== check) {
+        check=0;
         wonderingWord = prompt("Faulty input! <br> Only use letters or spaces")
         spelling();
     }   
