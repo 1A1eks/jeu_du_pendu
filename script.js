@@ -21,7 +21,7 @@ function wonderingWordCaption() {
 
 wonderingWordCaption();
 
-/* const le = wonderingWord.length;
+const le = wonderingWord.length;
 let check = 0;
 
 wonderingWord = wonderingWord.toUpperCase();
@@ -44,6 +44,6 @@ function repro() {
     }
 }
 
-spelling(); */
+spelling();
 
 
