@@ -3,7 +3,6 @@ let wonderingWord = prompt("What is the magical word?")
 
 
 
-
 wonderingWord = wonderingWord.toUpperCase();
 
 function spelling (wondering, len, check) {
