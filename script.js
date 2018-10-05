@@ -1,14 +1,41 @@
+let wonderingWord = prompt("What is the magical word?")
 
-var wonderingWord = prompt("What is the magical word?")
-/*------------------------------- Function underscore ---------------------- */
-/*--------------Putting underscore for each letter -------------------- */
+function spelling (wondering, len, check) {
+    wondering = wondering.toUpperCase();
+    for (let i=0; i < len; i++){
+        console.log('1 i' + i +  check + "  + " +  wondering.charCodeAt(i));
+        for (let alphab = 0; alphab < 26; alphab++){
+            console.log('2 word' + wondering + "  +  " + wondering.charCodeAt(i));
+            if (wondering.charCodeAt(i) === "A".charCodeAt(0) + alphab) {
+                check++;
+                console.log('3' + check);
+            } else if (wondering.charCodeAt(i) === " ".charCodeAt(0) || wondering.charCodeAt(i) === "-".charCodeAt(0)) {
+                check++;
+                alphab=9001;
+            }
+        }
+    }
 
-function wonderingWordCaption() {
+    console.log('4 check ' + check);
+    console.log('5  lengh' + len);
+
+    if (len !== check) {
+        wondering = prompt("Faulty input! \nOnly use letters or spaces")
+        spelling(wondering, wondering.length, 0);
+    } else { 
+        wonderingWordCaption(wondering);
+    }  
+}
+
+spelling(wonderingWord, wonderingWord.length, 0);
+
+// making underscores!
+function wonderingWordCaption(wondering) {
     let finalCaption = "";
-    for (i = 0; i < wonderingWord.length; i++) {
-        if (wonderingWord.charCodeAt(i) == "-".charCodeAt(0)) {
+    for (i = 0; i < wondering.length; i++) {
+        if (wondering.charCodeAt(i) == "-".charCodeAt(0)) {
             finalCaption += " -";
-        } else if (wonderingWord.charCodeAt(i) == " ".charCodeAt(0)) {
+        } else if (wondering.charCodeAt(i) == " ".charCodeAt(0)) {
             finalCaption += " ";
         } else {
             let caption = " _" ;
@@ -18,32 +45,4 @@ function wonderingWordCaption() {
     console.log(finalCaption);
     document.querySelector("#page > #left > pre").innerText = finalCaption;
 }
-
-wonderingWordCaption();
-
-/* const le = wonderingWord.length;
-let check = 0;
-
-wonderingWord = wonderingWord.toUpperCase();
-
-function spelling() {
-    for (let i = 0; i < le; i++) {
-        for (let alphab = 0; alphab < 25; alphab++) {
-            if (wonderingWord.charCodeAt(i) === "A".charCodeAt(0) + alphab || wonderingWord.charCodeAt(i) === " ".charCodeAt(0)) {
-                check++;
-            }
-        }
-    }
-    repro();
-}
-
-function repro() {
-    if (le !== check) {
-        wonderingWord = prompt("Faulty input! <br> Only use letters or spaces")
-        spelling();
-    }
-}
-
-spelling(); */
-
 
