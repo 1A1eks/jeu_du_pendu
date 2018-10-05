@@ -1,38 +1,37 @@
 
-var wonderingWord = prompt("What is the magical word?")
+let wonderingWord = prompt("What is the magical word?")
 
 
-let check = 0;
+
 
 wonderingWord = wonderingWord.toUpperCase();
 
-//functions to check spelling
-
-function spelling () {
-    for (let i=0; i < le; i++){
+function spelling (wondering, len, check) {
+    wondering = wondering.toUpperCase();
+    for (let i=0; i < len; i++){
+        console.log('1 ' + i);
         for (let alphab = 0; alphab < 25; alphab++){
+            console.log('2 ' + wondering + "  +  " + wondering.charCodeAt(i));
+            if (wondering.charCodeAt(i) === "A".charCodeAt(0) + alphab || wondering.charCodeAt(i) === " ".charCodeAt(0)) {
 
-                                                // === 65         + alphab
-
-            if (wonderingWord.charCodeAt(i) === "A".charCodeAt(0) + alphab || wonderingWord.charCodeAt(i) === " ".charCodeAt(0) || 
-            wonderingWord.charCodeAt(i) === "-".charCodeAt(0)) {
                 check++;
+                console.log('3');
             }
         }
     }
-    repro(wonderingWord.length);
+
+    console.log('1  ' + check);
+    console.log('2  ' + len);
+
+    if (len !== check) {
+        let change = prompt("Faulty input! <br> Only use letters or spaces")
+        spelling(change, change.length, 0);
+    } else { wonderingWordCaption();
+    }  
 }
 
-function repro (le) {
-    if (le !== check) {
-        wonderingWord = prompt("Faulty input! <br> Only use letters or spaces")
-        check = 0;
-        spelling();
-    }   
-}
 
-//actually using the function!!!
-spelling();
+spelling(wonderingWord, wonderingWord.length, 0);
 
 // making underscores!
 
