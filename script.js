@@ -108,6 +108,9 @@ function goodOrWrong(letterToTry) {
         show_image(500, 500, indice);
         document.querySelector("#page > #left > #wrongl").innerText += (" " + letter + " ");
         indice++;
+        if (indice === 11) {
+            alert("you lost! \n Try again!");
+        }
     }
 
     document.querySelector("#page > #left > pre").innerText = finalCaption;
