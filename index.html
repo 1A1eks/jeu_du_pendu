@@ -15,8 +15,8 @@
             <h1>Hangman</h1>
             <pre>55265</pre>
             <div id="input">
-                <form id="letter" action="#" onsubmit="enterPressed()">
-                    Guess a letter: <input type="text" id="myLetter" maxlength="1">
+                <form id="letter" action="#" onsubmit="enterPressed(); return false">
+                    Guess a letter: <input type="text" name="myLetter" maxlength="1">
                 </form>
             </div>
 
