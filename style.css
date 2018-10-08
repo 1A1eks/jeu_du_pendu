@@ -17,13 +17,26 @@ pre {
     font-size: 30px;
 }
 
+#wrongl {
+    padding-left: 10%;
+    font-size: 20px;
+    color: red;
+}
 /*----------Form for the Letter ---------------*/
 form {
     text-align: center;
 }
 
+/* --- Input from the form --- */
 input {
     width: 10px;
+}
+
+#input{
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    border: 2px solid black;
 }
 
 /*============================= Right Section =================================*/
@@ -31,12 +44,11 @@ input {
     background-color: #ddd;
     justify-content: center;
     text-align: center;
+    width: 500px;
+    height: 500px;
 }
 
-#input{
-    text-align: center;
-    border: 2px solid black;
-}
+
 
 .picture {
 }
