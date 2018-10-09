@@ -2,8 +2,11 @@ let wonderingWord = prompt("What is the magical word?");
 let finalCaption = "";
 //Call a dynamique empty array
 let arrayFinalCaption = new Array(wonderingWord.length);
+let doubleLetter = new Array();
+let letterCount = 0;
 let indice = 0;
 let countEndOfTheGame = 0;
+
 
 function spelling(wondering, len, check) {
     wondering = wondering.toUpperCase();
@@ -46,7 +49,7 @@ function wonderingWordCaption(wondering) {
             finalCaption += arrayFinalCaption[i];
         } else {
             arrayFinalCaption[i] = " _ ";
-            finalCaption +=  arrayFinalCaption[i];
+            finalCaption += arrayFinalCaption[i];
         }
     }
     console.log(finalCaption);
@@ -71,9 +74,11 @@ function show_image(width, height, index) {
 function enterPressed() {
     let formLetter = document.forms[0];
     let letter = formLetter.elements[0].value;
-    console.log(letter);
-    goodOrWrong(letter);
+    doubleLetter[letterCount] = letter;
+   // goodOrWrong(letter);
+    doubleLetters(letter, letterCount);
     formLetter.elements[0].value = "";
+    letterCount++;
 }
 
 function goodOrWrong(letterToTry) {
@@ -100,7 +105,7 @@ function goodOrWrong(letterToTry) {
         } else {
             finalCaption += (" " + arrayFinalCaption[i] + " ");
             countError++;
-            countEndOfTheGame++
+            countEndOfTheGame++;
         }
     }
 
@@ -117,4 +122,19 @@ function goodOrWrong(letterToTry) {
     console.log(arrayFinalCaption);
 }
 
+ function doubleLetters(letter) {
+    let toWrite = 0;
+    for (i = 0; i < doubleLetter.length; i++) {
+        if (doubleLetter[i].charCodeAt(0) === letter.charCodeAt(0)) {
+            toWrite++;
+        }
+    }
+    
+    if (toWrite > 1) {
+        alert("Don't be dumb, Think again");
+    }
+    else {
+        goodOrWrong(letter);
+    }
+} 
 
