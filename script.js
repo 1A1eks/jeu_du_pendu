@@ -2,11 +2,16 @@ let wonderingWord = prompt("What is the magical word?");
 let finalCaption = "";
 //Call a dynamique empty array
 let arrayFinalCaption = new Array(wonderingWord.length);
+//Var for the count of double letter
 let doubleLetter = new Array();
 let letterCount = 0;
+// "indice" is the index for the images 
 let indice = 0;
 let countEndOfTheGame = 0;
-
+// Array to check the victory
+wonderingWord = wonderingWord.toUpperCase();
+let wonderingWordArray = wonderingWord.split("");
+console.log(wonderingWordArray);
 
 function spelling(wondering, len, check) {
     wondering = wondering.toUpperCase();
@@ -72,6 +77,7 @@ function show_image(width, height, index) {
 
 /*-------------------- Letter IN -------------------- */
 function enterPressed() {
+    victoire();
     let formLetter = document.forms[0];
     let letter = formLetter.elements[0].value;
     doubleLetter[letterCount] = letter;
@@ -80,6 +86,22 @@ function enterPressed() {
     formLetter.elements[0].value = "";
     letterCount++;
 }
+
+function doubleLetters(letter) {
+    let toWrite = 0;
+    for (i = 0; i < doubleLetter.length; i++) {
+        if (doubleLetter[i].charCodeAt(0) === letter.charCodeAt(0)) {
+            toWrite++;
+        }
+    }
+    
+    if (toWrite > 1) {
+        alert("Don't be dumb, Think again");
+    }
+    else {
+        goodOrWrong(letter);
+    }
+} 
 
 function goodOrWrong(letterToTry) {
     //Put everything in Uppercase
@@ -122,19 +144,29 @@ function goodOrWrong(letterToTry) {
     console.log(arrayFinalCaption);
 }
 
- function doubleLetters(letter) {
-    let toWrite = 0;
-    for (i = 0; i < doubleLetter.length; i++) {
-        if (doubleLetter[i].charCodeAt(0) === letter.charCodeAt(0)) {
-            toWrite++;
+function victoire() {
+    console.log("im in");
+    let victory = 0;
+    for (i = 0; i < wonderingWordArray.length; i++) {
+        if (wonderingWordArray[i] === arrayFinalCaption[i]) {
+            victory++;
         }
     }
-    
-    if (toWrite > 1) {
-        alert("Don't be dumb, Think again");
+    if (victory === wonderingWordArray.length) {
+        wonderingWord = prompt("What is the magical word?");
+        //On reinitialise
+        finalCaption = "";
+        arrayFinalCaption = new Array(wonderingWord.length);
+        doubleLetter = new Array();
+        letterCount = 0;
+        // "indice" is the index for the images 
+        indice = 0;
+        countEndOfTheGame = 0;
+        // Array to check the victory
+        wonderingWord = wonderingWord.toUpperCase();
+        wonderingWordArray = wonderingWord.split("");  
+        spelling(wonderingWord, wonderingWord.length, 0); 
     }
-    else {
-        goodOrWrong(letter);
-    }
-} 
+}
+
 
